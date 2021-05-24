@@ -4,8 +4,12 @@ import {
     CreateDateColumn,
     Entity,
     PrimaryGeneratedColumn,
-    UpdateDateColumn
+    UpdateDateColumn,
+    BeforeInsert,
+    BeforeUpdate
 } from 'typeorm'
+
+import * as bcrypt from 'bcryptjs'
 
 @Entity('user')
 export class User {
@@ -26,7 +30,6 @@ export class User {
     cpf: string
 
     @Column({ nullable: false })
-    @Length(6, 16)
     @IsNotEmpty()
     password: string
 
@@ -35,4 +38,10 @@ export class User {
 
     @UpdateDateColumn({ type: 'timestamp' })
     updated_at: Date
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    hashPassword() {
+        this.password = bcrypt.hashSync(this.password, 8)
+    }
 }
