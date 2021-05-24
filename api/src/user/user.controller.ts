@@ -1,17 +1,11 @@
-import {
-    Body,
-    Controller,
-    Get,
-    Post,
-    UsePipes,
-    ValidationPipe
-} from '@nestjs/common'
+import { Body, Controller, Get, Post } from '@nestjs/common'
 
 import { User } from './user.entity'
 
 import { CreateUser } from './dto/create-user.dto'
 
 import { UserService } from './user.service'
+import { SETTINGS } from '../app.utils'
 
 @Controller('user')
 export class UserController {
@@ -22,9 +16,10 @@ export class UserController {
         return await this.userService.getUsers()
     }
 
-    @Post()
-    @UsePipes(ValidationPipe)
-    async createUser(@Body() newUser: CreateUser): Promise<User> {
+    @Post('/register')
+    async createUser(
+        @Body(SETTINGS.VALIDATION_PIPE_422) newUser: CreateUser
+    ): Promise<User> {
         return await this.userService.createUser(newUser)
     }
 }
