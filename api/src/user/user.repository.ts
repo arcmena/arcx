@@ -57,4 +57,17 @@ export class UserRepository extends Repository<User> {
             throw new InternalServerErrorException(error)
         }
     }
+
+    async deleteUser(cpf: string): Promise<void> {
+        try {
+            const deleted = await this.delete({ cpf })
+
+            if (deleted.affected === 0)
+                throw new NotFoundException(
+                    `User not found with the cpf: ${cpf}`
+                )
+        } catch (error) {
+            throw new InternalServerErrorException(error)
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
 
 import { User } from './user.entity'
 
@@ -21,5 +21,10 @@ export class UserController {
         @Body(SETTINGS.VALIDATION_PIPE_422) newUser: CreateUser
     ): Promise<User> {
         return await this.userService.createUser(newUser)
+    }
+
+    @Delete('/:cpf')
+    async deleteUSer(@Param('cpf') cpf: string): Promise<void> {
+        return await this.userService.deleteUser(cpf)
     }
 }

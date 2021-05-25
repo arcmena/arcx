@@ -15,4 +15,8 @@ export class UserService {
     async createUser(newUser: CreateUser): Promise<User> {
         return await this.userRepository.createUser(newUser)
     }
+
+    async deleteUser(cpf: string): Promise<void> {
+        return await this.userRepository.deleteUser(cpf)
+    }
 }
