@@ -7,6 +7,8 @@ import { validateOrReject } from 'class-validator'
 import { EntityRepository, Repository } from 'typeorm'
 
 import { CreateUser } from './dto/create-user.dto'
+import { UpdateUser } from './dto/update-user.dto'
+
 import { User } from './user.entity'
 
 @EntityRepository(User)
@@ -25,13 +27,9 @@ export class UserRepository extends Repository<User> {
         try {
             await validateOrReject(newUser)
 
-            const userCpfExists = await this.findOne({
-                where: { cpf: newUser.cpf }
-            })
+            const userCpfExists = await this.findOne({ cpf: newUser.cpf })
 
-            const userEmailExists = await this.findOne({
-                where: { email: newUser.email }
-            })
+            const userEmailExists = await this.findOne({ email: newUser.email })
 
             if (newUser.password !== newUser.confirm)
                 errors.push(`Password and confirm don't match`)
@@ -53,6 +51,25 @@ export class UserRepository extends Repository<User> {
             await this.save(user)
 
             return user
+        } catch (error) {
+            throw new InternalServerErrorException(error)
+        }
+    }
+
+    async updateUser(id: string, newData: UpdateUser): Promise<User> {
+        try {
+            await validateOrReject(newData)
+
+            const result = await this.findOne({ where: { id } })
+
+            if (!result)
+                throw new NotFoundException(`User not found with the id: ${id}`)
+
+            await this.update({ id: result.id }, { ...newData })
+
+            const updated = await this.findOne({ id: result.id })
+
+            return updated
         } catch (error) {
             throw new InternalServerErrorException(error)
         }

@@ -1,8 +1,11 @@
-import { Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable } from '@nestjs/common'
 
 import { UserRepository } from './user.repository'
-import { User } from './user.entity'
+
 import { CreateUser } from './dto/create-user.dto'
+import { UpdateUser } from './dto/update-user.dto'
+
+import { User } from './user.entity'
 
 @Injectable()
 export class UserService {
@@ -14,6 +17,12 @@ export class UserService {
 
     async createUser(newUser: CreateUser): Promise<User> {
         return await this.userRepository.createUser(newUser)
+    }
+
+    async updateUser(id: string, newData: UpdateUser): Promise<User> {
+        if (!id) throw new BadRequestException('ID must be provided')
+
+        return await this.userRepository.updateUser(id, newData)
     }
 
     async deleteUser(cpf: string): Promise<void> {
