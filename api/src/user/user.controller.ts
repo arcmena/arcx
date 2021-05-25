@@ -20,7 +20,7 @@ import { SETTINGS } from '../app.utils'
 export class UserController {
     constructor(private userService: UserService) {}
 
-    @Get()
+    @Get('/index')
     async getUsers(): Promise<User[]> {
         return await this.userService.getUsers()
     }
