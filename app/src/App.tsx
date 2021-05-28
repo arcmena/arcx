@@ -1,11 +1,15 @@
 import { ThemeProvider } from 'styled-components'
 
+import { Layout } from 'components/common'
+
 import theme from 'styles/theme'
+import GlobalStyles from 'styles/global'
 
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <div>arcx</div>
+            <GlobalStyles />
+            <Layout>main content</Layout>
         </ThemeProvider>
     )
 }

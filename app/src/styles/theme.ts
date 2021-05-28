@@ -1,11 +1,17 @@
 const theme = {
     colors: {
-        white: '#ffffff',
         blue: '#1b2755',
-        black: '#121212',
+        black: {
+            1: '#121212',
+            2: '#36373c'
+        },
         green: '#38d6ba',
+        white: '#ffffff',
         gray: {
-            1: '#fafafa'
+            1: '#fafafa',
+            2: '#f8f9fb',
+            3: '#eceff5',
+            4: '#b7c2d7'
         }
     },
     mixins: {
