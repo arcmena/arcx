@@ -4,20 +4,20 @@ import styled from 'styled-components'
 import Navbar from '../Navbar'
 
 const Wrapper = styled.div`
-    display: flex;
     ${({ theme: { mixins } }) => mixins.fillContainer};
+    display: flex;
 `
 
 const Main = styled.main`
-    display: flex;
     width: calc(100% - var(--navbar-width));
+    display: flex;
+    padding: 4rem;
 `
 
 const Layout: FC = ({ children }) => {
     return (
         <Wrapper>
             <Navbar />
-
             <Main>{children}</Main>
         </Wrapper>
     )

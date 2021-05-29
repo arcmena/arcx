@@ -3,7 +3,8 @@ const theme = {
         blue: '#1b2755',
         black: {
             1: '#121212',
-            2: '#36373c'
+            2: '#000105',
+            3: '#36373c'
         },
         green: '#38d6ba',
         white: '#ffffff',
@@ -11,7 +12,8 @@ const theme = {
             1: '#fafafa',
             2: '#f8f9fb',
             3: '#eceff5',
-            4: '#b7c2d7'
+            4: '#b7c2d7',
+            5: '#aeb9d1'
         }
     },
     mixins: {
