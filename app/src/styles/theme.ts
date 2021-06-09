@@ -1,6 +1,5 @@
 const theme = {
     colors: {
-        blue: '#1b2755',
         black: {
             1: '#121212',
             2: '#000105',
@@ -14,11 +13,20 @@ const theme = {
             3: '#eceff5',
             4: '#b7c2d7',
             5: '#aeb9d1'
+        },
+        pink: '#ff9e9e',
+        purple: '#ac9eff',
+        orange: '#ffc19e',
+        blue: {
+            1: '#92c9fb',
+            2: '#1b2755'
         }
     },
     mixins: {
         fillContainer: 'width: 100%; height: 100%',
-        postRounded: 'border-radius: 1rem'
+        postRounded: 'border-radius: 1rem',
+        sectionShadow:
+            'border-radius: 1.7rem; box-shadow: 0px 0px 44px -26px rgba(0, 1, 5, 0.36); background-color: #ffffff;'
     },
     sizes: {
         xs: '320px',

@@ -1,0 +1,59 @@
+import { FC } from 'react'
+import styled from 'styled-components'
+
+import MonthlyProfits from './MonthlyProfits'
+import NewUsers from './NewUsers'
+import OrdersToday from './OrdersToday'
+import ReportOverview from './ReportOverview'
+import TopItems from './TopItems'
+import UserActivity from './UserActivity'
+
+const DashboardWrapper = styled.div`
+    margin-top: 2.5rem;
+
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    width: 100%;
+    height: calc(100% - 88px);
+`
+
+const Center = styled.div`
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 3;
+
+    gap: 2.5rem;
+
+    display: grid;
+    grid-template-rows: repeat(7, minmax(0, 1fr));
+`
+
+const Side = styled.div`
+    grid-column: 3;
+    grid-row: 1 / span 3;
+
+    gap: 2.5rem;
+
+    display: grid;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+`
+
+const Dashboard: FC = () => {
+    return (
+        <DashboardWrapper>
+            <Center>
+                <ReportOverview />
+                <UserActivity />
+                <NewUsers />
+                <MonthlyProfits />
+            </Center>
+            <Side>
+                <OrdersToday />
+                <TopItems />
+            </Side>
+        </DashboardWrapper>
+    )
+}
+
+export default Dashboard
