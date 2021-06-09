@@ -5,7 +5,7 @@ const MonthlyProfitsWrapper = styled.div`
     ${({ theme: { mixins } }) => mixins.sectionShadow}
 
     grid-column: 2;
-    grid-row: 5 / span 3;
+    grid-row: 8 / span 6;
 
     padding: 2.6rem;
 

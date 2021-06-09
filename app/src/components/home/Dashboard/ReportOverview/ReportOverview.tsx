@@ -9,7 +9,7 @@ const ReportWrapper = styled.div`
     ${({ theme: { mixins } }) => mixins.sectionShadow}
 
     grid-column: 1 / span 2;
-    grid-row: 1;
+    grid-row: 1 / span 2;
 
     padding: 2.6rem;
 

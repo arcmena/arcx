@@ -5,7 +5,7 @@ const UserActivityWrapper = styled.div`
     ${({ theme: { mixins } }) => mixins.sectionShadow};
 
     grid-column: 1 / span 2;
-    grid-row: 2 / span 3;
+    grid-row: 3 / span 5;
 
     padding: 2.6rem;
 

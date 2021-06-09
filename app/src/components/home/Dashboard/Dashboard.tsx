@@ -26,7 +26,9 @@ const Center = styled.div`
     gap: 2.5rem;
 
     display: grid;
-    grid-template-rows: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(12, minmax(0, 1fr));
+    max-height: calc(100vh - 163px);
 `
 
 const Side = styled.div`
@@ -36,7 +38,8 @@ const Side = styled.div`
     gap: 2.5rem;
 
     display: grid;
-    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(12, minmax(0, 1fr));
+    max-height: calc(100vh - 163px);
 `
 
 const Dashboard: FC = () => {

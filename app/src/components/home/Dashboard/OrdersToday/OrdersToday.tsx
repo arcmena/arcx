@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 
 const OrdersTodayWrapper = styled.div`
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 8;
 
     ${({ theme: { mixins } }) => mixins.sectionShadow}
 

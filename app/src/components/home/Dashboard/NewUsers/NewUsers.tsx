@@ -5,7 +5,7 @@ const NewUsersWrapper = styled.div`
     ${({ theme: { mixins } }) => mixins.sectionShadow}
 
     grid-column: 1;
-    grid-row: 5 / span 3;
+    grid-row: 8 / span 6;
 
     padding: 2.6rem;
 

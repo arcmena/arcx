@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const TopItemsWrapper = styled.div`
     ${({ theme: { mixins } }) => mixins.sectionShadow}
 
-    grid-row: 4;
+    grid-row: 9 / span 4;
 
     padding: 2.6rem;
 
