@@ -10,6 +10,7 @@ import UserActivity from './UserActivity'
 
 const DashboardWrapper = styled.div`
     margin-top: 2.5rem;
+    overflow: auto;
 
     display: grid;
     gap: 2.5rem;
@@ -17,6 +18,10 @@ const DashboardWrapper = styled.div`
 
     width: 100%;
     height: calc(100% - 88px);
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.lg}) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 `
 
 const Center = styled.div`
@@ -29,6 +34,11 @@ const Center = styled.div`
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(12, minmax(0, 1fr));
     max-height: calc(100vh - 163px);
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.lg}) {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 3;
+    }
 `
 
 const Side = styled.div`
@@ -40,6 +50,11 @@ const Side = styled.div`
     display: grid;
     grid-template-rows: repeat(12, minmax(0, 1fr));
     max-height: calc(100vh - 163px);
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.lg}) {
+        grid-column: 1 / span 3;
+        grid-row: 4 / span 3;
+    }
 `
 
 const Dashboard: FC = () => {
