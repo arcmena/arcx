@@ -13,6 +13,11 @@ const NavbarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.md}) {
+        width: var(--navbar-width-mobile);
+        padding: 2rem 1.3rem;
+    }
 `
 
 const Nav = styled.nav``

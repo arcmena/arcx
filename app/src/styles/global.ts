@@ -38,9 +38,9 @@ export default createGlobalStyle`
         src: url(${Bold}) format("truetype");
         font-weight: 700;
     }
-
     :root{
-        --navbar-width: 260px
+        --navbar-width: 260px;
+        --navbar-width-mobile: 98px
     }
     * {
         box-sizing: border-box;

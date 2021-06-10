@@ -16,6 +16,8 @@ const ProfileWrapper = styled.div`
 
     padding: 1rem 2rem;
 
+    white-space: nowrap;
+
     img {
         border-radius: 0.8rem;
 
@@ -26,10 +28,25 @@ const ProfileWrapper = styled.div`
     h1 {
         font-size: 1.5rem;
         color: ${({ theme: { colors } }) => colors.black[2]};
+
+        max-width: 100%;
+        overflow: hidden;
+        transition: max-width 0.2s linear;
     }
 
     svg {
         color: ${({ theme: { colors } }) => colors.gray[5]};
+        max-width: 100%;
+        overflow: hidden;
+        transition: max-width 0.2s linear;
+    }
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.md}) {
+        h1,
+        svg {
+            max-width: 0%;
+            display: none;
+        }
     }
 `
 

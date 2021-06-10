@@ -12,6 +12,10 @@ const Main = styled.main`
     width: calc(100% - var(--navbar-width));
     display: flex;
     padding: 4rem;
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.md}) {
+        width: calc(100% - var(--navbar-width-mobile));
+    }
 `
 
 const Layout: FC = ({ children }) => {

@@ -35,6 +35,7 @@ const NavLink = styled(_navLink)`
 
     span {
         margin-left: 1.5rem;
+        display: block;
     }
 
     color: ${({ theme: { colors } }) => colors.gray[4]};
@@ -47,6 +48,14 @@ const NavLink = styled(_navLink)`
     &:hover {
         color: ${({ theme: { colors } }) => colors.black[2]};
         background-color: ${({ theme: { colors } }) => colors.gray[3]};
+    }
+
+    @media (max-width: ${({ theme: { sizes } }) => sizes.md}) {
+        justify-content: center;
+
+        span {
+            display: none;
+        }
     }
 `
 

@@ -6,7 +6,7 @@ import { IoChevronDownOutline } from 'react-icons/io5'
 
 import { formatDate } from 'utils/formatters'
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
     display: flex;
     justify-content: space-between;
 
